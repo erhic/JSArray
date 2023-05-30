@@ -76,3 +76,16 @@ console.log(userOrigin) //['Account active', 'Joan', 'Katerina', 'balance', Tue 
  let usrAmountStr = '2000, 54000, 800, 500';
  let usrTotalAmountStr = usrAmountStr.split();
  console.log(usrTotalAmountStr) // ['2000, 54000, 800, 500'] an array now
+ /*...........................................*/
+
+ //slice -this is a non destructive method ,doesnt mutate array unlike splice.  we are able to extract data with certain index range using this method'
+
+ let userLoggedIn = ['June', 'Mike', 'Juliet', 'Ann','Dan'];
+ let latestLogged = userLoggedIn.slice(3,5); 
+ console.log(latestLogged)//['Ann', 'Dan']
+ console.log(userLoggedIn) //['June', 'Mike', 'Juliet', 'Ann', 'Dan']
+ console.log(userLoggedIn.slice(3,4))//['Ann']
+ console.log(userLoggedIn.slice(userLoggedIn.length-1,userLoggedIn.length))//['Dan']
+
+
+ //splice - this is a destructive method ,changes the structure of the array , removes elements in array and replaces or not with new ones , uses index positioning like slice.
