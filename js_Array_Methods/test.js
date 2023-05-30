@@ -98,3 +98,11 @@ userLoggedOut.splice(0,0 ,'Jane')
 console.log(userLoggedOut) //(6) ['Jane', 'Milka', 'John', 'Angeline', 'antony', 'Vivian']
 userLoggedOut.splice(1,1)
 console.log(userLoggedOut)  //['Jane', 'John', 'Angeline', 'antony', 'Vivian'], when you pass the index and element to be affected and dont pass any value , the range of those tobe affected is deleted from the index position
+/*...........................................*/
+
+
+// sort -used to arrange the array elements alphabeticaly
+userLoggedOut.sort()
+console.log(userLoggedOut.sort()) //['Angeline', 'Jane', 'John', 'Vivian', 'antony']
+
+console.log(userLoggedOut.concat(['angeline','jane','Angel']).sort())// while sorting upcase is sorted and given high precidence then lowercase is sorted later
