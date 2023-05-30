@@ -64,5 +64,15 @@ userAccounts =userDetails.concat(myCart)
 console.log(userAccounts) // ['Account active', 'Joan', 'Katerina', 'balance', Tue May 30 2023 15:11:09 GMT+0300 (East Africa Time), 'mangos', 'apple', 'jinja', 'lemon'] , Display that both array are combined in this variable
 
 userOrigin=userDetails.concat(['Kenya , Female'])
-console.log(userOrigin)
+console.log(userOrigin) //['Account active', 'Joan', 'Katerina', 'balance', Tue May 30 2023 15:14:19 GMT+0300 (East Africa Time), 'Kenya , Female'], added elements in the existing array , without pushing or refferencing to another array.
 
+//joins - takes an array and returns its as a string, can take an argument , argument appears between the strings
+ let userAmount = [ 2000 ,54000,800,500]
+ console.log(userAmount) 
+ let userTotalAmount = userAmount
+ console.log(userTotalAmount.join(''))//string 200054000800500 to concert to number use parseInt() but will convert the first element only
+
+ //splits - act opposite to join , takes a string andturns it to an array.
+ let usrAmountStr = '2000, 54000, 800, 500';
+ let usrTotalAmountStr = usrAmountStr.split();
+ console.log(usrTotalAmountStr) // ['2000, 54000, 800, 500'] an array now
