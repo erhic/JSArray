@@ -89,3 +89,12 @@ console.log(userOrigin) //['Account active', 'Joan', 'Katerina', 'balance', Tue 
 
 
  //splice - this is a destructive method ,changes the structure of the array , removes elements in array and replaces or not with new ones , uses index positioning like slice.
+
+let userLoggedOut = [ 'Milka','John','Angeline','Mark','Vivian']
+console.log(userLoggedOut) // (5) ['Milka', 'John', 'Angeline', 'Mark', 'Vivian']
+userLoggedOut.splice(3,1 ,'antony');// ['Milka', 'John', 'Angeline', 'antony', 'Vivian'] ,first arg .3 represent index position, 1 represent element to be affectedby the change. 
+console.log(userLoggedOut)
+userLoggedOut.splice(0,0 ,'Jane')
+console.log(userLoggedOut) //(6) ['Jane', 'Milka', 'John', 'Angeline', 'antony', 'Vivian']
+userLoggedOut.splice(1,1)
+console.log(userLoggedOut)  //['Jane', 'John', 'Angeline', 'antony', 'Vivian'], when you pass the index and element to be affected and dont pass any value , the range of those tobe affected is deleted from the index position
