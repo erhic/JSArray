@@ -106,3 +106,13 @@ userLoggedOut.sort()
 console.log(userLoggedOut.sort()) //['Angeline', 'Jane', 'John', 'Vivian', 'antony']
 
 console.log(userLoggedOut.concat(['angeline','jane','Angel']).sort())// while sorting upcase is sorted and given high precidence then lowercase is sorted later
+
+//test
+const fruits = ['apple ','orange ','banana'];
+console.log(fruits);
+fruits.unshift('cherry','pineapple');
+console.log(fruits);
+fruits.push('plum','grapes');
+console.log(fruits)// ['cherry', 'pineapple', 'apple ', 'orange ', 'banana', 'plum', 'grapes']
+fruits.splice(3,1,'lemon')
+console.log(fruits)//['cherry', 'pineapple', 'apple ', 'lemon', 'banana', 'plum', 'grapes']
