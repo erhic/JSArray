@@ -27,9 +27,9 @@ myCart.forEach(
  lemon
  The value is lemon at index 3
  carrots
- The value is carrots at index 4........................*/
+ The value is carrots at index 4*/
 
-// map()
+// map()............................................................
 // act the same as forEach array , the difference is that it can create a copy of the original array , can manupilate the array and return different values.
 //using string
 
@@ -50,9 +50,9 @@ function square(value){
  console.log(discAmount); // [10000, 400, 900, 2025, 152100 ;
  console.log(myDiscount) //[100, 20, 30, 45, 390] in its original state
 
- // filter
+ // filter.........................................................
 //  is used to filter an array ,it applies conditional statement on each element and hence return results based on boolean
-listNumbers = [35,3,45,56,23,562,78,90,34,46,78,96];
+let listNumbers = [35,3,45,56,23,562,78,90,34,46,78,96];
 let evenNum =  listNumbers.filter(
   function(value,index,array){
     // return value %  2 === 0;                //  ouput . [56, 562, 78, 90, 34, 46, 78, 96]   use this is short
@@ -60,3 +60,15 @@ let evenNum =  listNumbers.filter(
   }
 ) // uses anonymous function like forEach, extract values based on condition
 console.log(evenNum)
+
+//..............................................................
+//reduce method  - used to compute and sum up the array elents for instance...........
+// can actually take 4 param , mostly first two are used , the first param is used to stores values
+// uses a named function 
+let priceOrder = [35,3,45,56,23,562,78,90,34,46,78,96];
+
+function calcTotalAmount(total,value,index,array){
+  return total+value;
+}
+let totalPrice =priceOrder.reduce(calcTotalAmount)
+console.log(totalPrice);
