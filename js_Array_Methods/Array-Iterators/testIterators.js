@@ -67,8 +67,31 @@ console.log(evenNum)
 // uses a named function 
 let priceOrder = [35,3,45,56,23,562,78,90,34,46,78,96];
 
-function calcTotalAmount(total,value,index,array){
-  return total+value;
-}
-let totalPrice =priceOrder.reduce(calcTotalAmount)
-console.log(totalPrice);
+// function calcTotalAmount(total,value,index,array){
+//   return total+value;
+// }
+let totalPrice =priceOrder.reduce(
+  function(total,value,index,array){
+    return total+value;
+  }
+// both named and anonymous function will produce same result
+)
+console.log(totalPrice); //1146
+
+
+//some  ,retuns a boolean value after checking certain condition
+ let execeedOrderLimit = priceOrder.some(
+  function(value){
+    return value > 500
+  }
+ )
+console.log(execeedOrderLimit)// true   . returned because 562 is greater than 500
+
+//every , works the same as some but all values must meet the same condition
+
+let lowOrderlimit = priceOrder.every(
+  function(value){
+    return value >10
+  }
+)
+console.log(lowOrderlimit) //fase .returned false because not all values are greater than 10 ,3 is less than 10
