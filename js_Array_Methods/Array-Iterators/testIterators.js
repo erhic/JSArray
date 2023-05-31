@@ -40,3 +40,12 @@ function convertToUpperCase(value){
 let myCapsWord = myCart.map(convertToUpperCase) //uses a named function
 console.log(myCapsWord); // ['MANGOS', 'APPLE', 'JINJA', 'LEMON', 'CARROTS'] capitalized,changed from original state, a copy
 console.log(myCart);  //  ['mangos', 'apple', 'jinja', 'lemon', 'carrots'] unchanged , in its original state
+
+let myDiscount = [100 ,20  ,30 ,45, 390]
+
+function square(value){
+  return value * value ; 
+}
+ let discAmount = myDiscount.map(square); //uses a named fuction
+ console.log(discAmount); // [10000, 400, 900, 2025, 152100 ;
+ console.log(myDiscount) //[100, 20, 30, 45, 390] in its original state
