@@ -49,3 +49,14 @@ function square(value){
  let discAmount = myDiscount.map(square); //uses a named fuction
  console.log(discAmount); // [10000, 400, 900, 2025, 152100 ;
  console.log(myDiscount) //[100, 20, 30, 45, 390] in its original state
+
+ // filter
+//  is used to filter an array ,it applies conditional statement on each element and hence return results based on boolean
+listNumbers = [35,3,45,56,23,562,78,90,34,46,78,96];
+let evenNum =  listNumbers.filter(
+  function(value,index,array){
+    // return value %  2 === 0;                //  ouput . [56, 562, 78, 90, 34, 46, 78, 96]   use this is short
+    return value ? value %2 ===0: value%2!==0; //  ouput . [56, 562, 78, 90, 34, 46, 78, 96]
+  }
+) // uses anonymous function like forEach, extract values based on condition
+console.log(evenNum)
