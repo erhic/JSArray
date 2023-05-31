@@ -95,3 +95,23 @@ let lowOrderlimit = priceOrder.every(
   }
 )
 console.log(lowOrderlimit) //fase .returned false because not all values are greater than 10 ,3 is less than 10
+
+// find method 
+// this method is used to find an element in ana array and retuns it
+
+let discountedUsers =['Moraa','Clinton','Annet','Zack'];
+
+let userInterviewed = discountedUsers.find(
+  function(value){
+    return value === 'Annet'
+
+  }
+);
+console.log(userInterviewed) //Annet , is founf inside the array , then its is returned. If a value is not found it rteturns undefined
+
+let userNotInterviewed =discountedUsers.findIndex(
+  function(value){
+    return value ==='Zack'
+  }
+)
+console.log(userNotInterviewed) //3 if the value didnt exist ,it would return -1
