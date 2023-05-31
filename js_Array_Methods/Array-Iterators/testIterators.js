@@ -39,4 +39,4 @@ function convertToUpperCase(value){
 
 let myCapsWord = myCart.map(convertToUpperCase) //uses a named function
 console.log(myCapsWord); // ['MANGOS', 'APPLE', 'JINJA', 'LEMON', 'CARROTS'] capitalized,changed from original state, a copy
-console.log(myCart); //  ['mangos', 'apple', 'jinja', 'lemon', 'carrots'] unchanged , in its original state
+console.log(myCart);  //  ['mangos', 'apple', 'jinja', 'lemon', 'carrots'] unchanged , in its original state
