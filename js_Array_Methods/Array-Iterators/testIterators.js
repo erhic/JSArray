@@ -115,3 +115,29 @@ let userNotInterviewed =discountedUsers.findIndex(
   }
 )
 console.log(userNotInterviewed) //3 if the value didnt exist ,it would return -1
+
+
+//test 
+const fruits = ['apple','orange','banana'];
+ 
+let myFruitsAlert = fruits.forEach(
+  function(value ,index ,arrray){
+    // return alert(index +' - '+ value)
+  }
+)
+console.log(myFruitsAlert);
+
+
+let upperCaseFruits = fruits.map(
+  function (value ,index,array){
+    return value.toUpperCase(value)
+  }
+)
+console.log(upperCaseFruits);
+
+let checkStringLength = fruits.every(
+  function (value,index,array){
+    return value.length > 4;
+  }
+);
+ console.log(checkStringLength)
