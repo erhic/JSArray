@@ -1,3 +1,4 @@
+```js
 setTimeout(document.write(onload), 30000);
 let myCart = ["mangos", "apple", "jinja", "lemon", "carrots"];
 console.log(myCart.length); //5
@@ -113,3 +114,4 @@ fruits.push("plum", "grapes");
 console.log(fruits); // ['cherry', 'pineapple', 'apple ', 'orange ', 'banana', 'plum', 'grapes']
 fruits.splice(3, 1, "lemon");
 console.log(fruits); //['cherry', 'pineapple', 'apple ', 'lemon', 'banana', 'plum', 'grapes']
+```

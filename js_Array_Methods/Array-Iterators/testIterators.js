@@ -1,4 +1,7 @@
 
+
+//************************************************************* */
+
 let myCart= [ 'mangos', 'apple', 'jinja','lemon','carrots'];
 
 //forEach..................................................
@@ -29,7 +32,10 @@ myCart.forEach(
  carrots
  The value is carrots at index 4*/
 
-// map()............................................................
+
+
+//map()*************************************************************
+
 // act the same as forEach array , the difference is that it can create a copy of the original array , can manupilate the array and return different values.
 //using string
 
@@ -37,7 +43,7 @@ function convertToUpperCase(value){
   return value.toUpperCase();
 }
 
-let myCapsWord = myCart.map(convertToUpperCase) //uses a named function
+let myCapsWord = myCart.map(convertToUpperCase) //used a named function
 console.log(myCapsWord); // ['MANGOS', 'APPLE', 'JINJA', 'LEMON', 'CARROTS'] capitalized,changed from original state, a copy
 console.log(myCart);  //  ['mangos', 'apple', 'jinja', 'lemon', 'carrots'] unchanged , in its original state
 
@@ -50,8 +56,11 @@ function square(value){
  console.log(discAmount); // [10000, 400, 900, 2025, 152100 ;
  console.log(myDiscount) //[100, 20, 30, 45, 390] in its original state
 
- // filter.........................................................
+
+
+// filter ***********************************************************
 //  is used to filter an array ,it applies conditional statement on each element and hence return results based on boolean
+
 let listNumbers = [35,3,45,56,23,562,78,90,34,46,78,96];
 let evenNum =  listNumbers.filter(
   function(value,index,array){
@@ -61,10 +70,13 @@ let evenNum =  listNumbers.filter(
 ) // uses anonymous function like forEach, extract values based on condition
 console.log(evenNum)
 
-//..............................................................
+
+
+//reduce *********************************************************** 
 //reduce method  - used to compute and sum up the array elents for instance...........
 // can actually take 4 param , mostly first two are used , the first param is used to stores values
 // uses a named function 
+
 let priceOrder = [35,3,45,56,23,562,78,90,34,46,78,96];
 
 // function calcTotalAmount(total,value,index,array){
@@ -79,13 +91,20 @@ let totalPrice =priceOrder.reduce(
 console.log(totalPrice); //1146
 
 
-//some  ,retuns a boolean value after checking certain condition
+
+// some *************************************************************
+//,retuns a boolean value after checking certain condition
+
  let execeedOrderLimit = priceOrder.some(
   function(value){
     return value > 500
   }
  )
 console.log(execeedOrderLimit)// true   . returned because 562 is greater than 500
+
+
+
+//every ********************************************************* */
 
 //every , works the same as some but all values must meet the same condition
 
@@ -94,9 +113,12 @@ let lowOrderlimit = priceOrder.every(
     return value >10
   }
 )
-console.log(lowOrderlimit) //fase .returned false because not all values are greater than 10 ,3 is less than 10
+console.log(lowOrderlimit) //false .returned false because not all values are greater than 10 ,3 is less than 10
 
-// find method 
+
+
+// find ***********************************************************
+
 // this method is used to find an element in ana array and retuns it
 
 let discountedUsers =['Moraa','Clinton','Annet','Zack'];
@@ -109,6 +131,9 @@ let userInterviewed = discountedUsers.find(
 );
 console.log(userInterviewed) //Annet , is founf inside the array , then its is returned. If a value is not found it rteturns undefined
 
+
+//findIndex **************************************************** */. 
+
 let userNotInterviewed =discountedUsers.findIndex(
   function(value){
     return value ==='Zack'
@@ -116,6 +141,8 @@ let userNotInterviewed =discountedUsers.findIndex(
 )
 console.log(userNotInterviewed) //3 if the value didnt exist ,it would return -1
 
+
+// forEach ********************************************************.
 
 //test 
 const fruits = ['apple','orange','banana'];
