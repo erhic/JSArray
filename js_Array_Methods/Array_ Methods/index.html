@@ -6,14 +6,320 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="prism.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="background-color: rgb(110, 118, 206);">
 
 
-  <p>Js Array Notes Methods
+  <h1 style="color: aliceblue ;text-align: center;">Js Array Notes Methods
+  </h1>
+  <p style="text-align: center;"><a href="#section1" style="color: aliceblue; padding-right: 5%;">Array Properties &
+      Basic Method</a>
+    <a href="#section2" style="color: aliceblue">High Order Array Methods</a>
   </p>
+
+  <style>
+    md-block {
+      white-space: pre;
+      font-family: monospace;
+      margin-bottom: 2%;
+      color: white;
+    }
+  </style>
+  <section id=section1 style="background-color: rgb(18, 26, 92);">
+    <h2 style="color: aliceblue ;text-align: center; padding-top: 9%;"> <em>Array Properties & Basic Method </em></h2>
+    <hr style="width: 50%;">
+    <md-block>
+      ```javascript
+
+      let myCart = ["mangos", "apple", "jinja", "lemon", "carrots"];
+      console.log(myCart.length); //5
+      console.log(myCart[myCart.length - 1]); // last element in the array
+      console.log((myCart.length = 3)); // to change the length of the array
+      console.log(myCart); // the values get update , will only display 3 elements
+      /*...........................................*/
+
+      //indexOf -returns index position (index in array begins from 0) ,this function is case sensetive
+      console.log(myCart.indexOf("lemon")); //-1 this element was removed
+      console.log(myCart.indexOf("carrots")); //-1 this element was removed
+      console.log(myCart.indexOf("mangos")); // 0
+      console.log(myCart.indexOf("apple")); // 1
+      console.log(myCart.push("lemon")); //4
+      console.log(myCart.indexOf("lemon")); //3
+      console.log(myCart); //[ 'mangos', 'apple', 'jinja','lemon']
+      console.log("\n");
+      myCart.length >= 1
+      ? console.log(`Cart has ${myCart.length} items`)
+      : console.log("Cart is empty"); // returns true on condition ,so cart length is logged
+      console.log("\n");
+      /*...........................................*/
+
+      //includes - returns a boolean
+      console.log(myCart.includes("lemon"));
+      console.log("\n");
+      myCart.includes("lemons")
+      ? console.log("item already added in the cart")
+      : console.log("item added successfully");
+      /*...........................................*/
+
+      //pop - used to remove last element from an array
+      let userDetails = ["Mrs", "Joan", "Katerina", 23];
+      console.log(userDetails); //['Mrs', 'Joan', 'Katerina', 23]
+      console.log(userDetails.pop()); //23
+      console.log(userDetails); // [ 'Mrs','Joan','Katerina'] , 23 , was deleted by pop method
+      console.log(userDetails.toString() + " Signed up Successfuly "); //Mrs Joan,Katerina
+      /*...........................................*/
+
+      // shift -used to remove first element in an array
+      console.log(userDetails.shift()); //Mrs -Logs the item that has been removed
+      console.log(userDetails); //['Joan', 'Katerina']
+      console.log(userDetails.toString()); //Joan,Katerina
+      /*...........................................*/
+
+      //push - used to add element at the last index
+      userDetails.push("balance", new Date());
+      console.log(userDetails); //['Joan', 'Katerina', 'balance', Tue May 30 2023 14:29:50 GMT+0300 (East Africa Time)],
+      you can push an object or function in an array.
+
+      //reverse -produce the array elements in a reverse order
+      const [...gender] = userDetails;
+      console.log(gender.reverse()); //[Tue May 30 2023 15:00:01 GMT+0300 (East Africa Time), 'balance', 'Katerina',
+      'Joan']
+
+      //unshift -add an element at the first index
+
+      userDetails.unshift("Account active"); //5 when logged , displays the updated array elements after updating it.
+
+      console.log(userDetails); //['Account active', 'Joan', 'Katerina', 'balance', Tue May 30 2023 15:05:28 GMT+0300
+      (East Africa Time)]
+
+      /*...........................................*/
+      //concat
+      userAccounts = userDetails.concat(myCart);
+      console.log(userAccounts); // ['Account active', 'Joan', 'Katerina', 'balance', Tue May 30 2023 15:11:09 GMT+0300
+      (East Africa Time), 'mangos', 'apple', 'jinja', 'lemon'] , Display that both array are combined in this variable
+
+      userOrigin = userDetails.concat(["Kenya , Female"]);
+      console.log(userOrigin); //['Account active', 'Joan', 'Katerina', 'balance', Tue May 30 2023 15:14:19 GMT+0300
+      (East
+      Africa Time), 'Kenya , Female'], added elements in the existing array , without pushing or refferencing to another
+      array.
+
+      //joins - takes an array and returns its as a string, can take an argument , argument appears between the strings
+      let userAmount = [2000, 54000, 800, 500];
+      console.log(userAmount);
+      let userTotalAmount = userAmount;
+      console.log(userTotalAmount.join("")); //string 200054000800500 to concert to number use parseInt() but will
+      convert
+      the first element only
+
+      //splits - act opposite to join , takes a string andturns it to an array.
+      let usrAmountStr = "2000, 54000, 800, 500";
+      let usrTotalAmountStr = usrAmountStr.split();
+      console.log(usrTotalAmountStr); // ['2000, 54000, 800, 500'] an array now
+      /*...........................................*/
+
+      //slice -this is a non destructive method ,doesnt mutate array unlike splice. we are able to extract data with
+      certain index range using this method'
+
+      let userLoggedIn = ["June", "Mike", "Juliet", "Ann", "Dan"];
+      let latestLogged = userLoggedIn.slice(3, 5);
+      console.log(latestLogged); //['Ann', 'Dan']
+      console.log(userLoggedIn); //['June', 'Mike', 'Juliet', 'Ann', 'Dan']
+      console.log(userLoggedIn.slice(3, 4)); //['Ann']
+      console.log(userLoggedIn.slice(userLoggedIn.length - 1, userLoggedIn.length)); //['Dan']
+
+      //splice - this is a destructive method ,changes the structure of the array , removes elements in array and
+      replaces
+      or not with new ones , uses index positioning like slice.
+
+      let userLoggedOut = ["Milka", "John", "Angeline", "Mark", "Vivian"];
+      console.log(userLoggedOut); // (5) ['Milka', 'John', 'Angeline', 'Mark', 'Vivian']
+      userLoggedOut.splice(3, 1, "antony"); // ['Milka', 'John', 'Angeline', 'antony', 'Vivian'] ,first arg .3 represent
+      index position, 1 represent element to be affectedby the change.
+      console.log(userLoggedOut);
+      userLoggedOut.splice(0, 0, "Jane");
+      console.log(userLoggedOut); //(6) ['Jane', 'Milka', 'John', 'Angeline', 'antony', 'Vivian']
+      userLoggedOut.splice(1, 1);
+      console.log(userLoggedOut); //['Jane', 'John', 'Angeline', 'antony', 'Vivian'], when you pass the index and
+      element
+      to be affected and dont pass any value , the range of those tobe affected is deleted from the index position
+      /*...........................................*/
+
+      // sort -used to arrange the array elements alphabeticaly
+      userLoggedOut.sort();
+      console.log(userLoggedOut.sort()); //['Angeline', 'Jane', 'John', 'Vivian', 'antony']
+
+      console.log(userLoggedOut.concat(["angeline", "jane", "Angel"]).sort()); // while sorting upcase is sorted and
+      given
+      high precidence then lowercase is sorted later
+
+      //test
+      const fruits = ["apple ", "orange ", "banana"];
+      console.log(fruits);
+      fruits.unshift("cherry", "pineapple");
+      console.log(fruits);
+      fruits.push("plum", "grapes");
+      console.log(fruits); // ['cherry', 'pineapple', 'apple ', 'orange ', 'banana', 'plum', 'grapes']
+      fruits.splice(3, 1, "lemon");
+      console.log(fruits); //['cherry', 'pineapple', 'apple ', 'lemon', 'banana', 'plum', 'grapes']
+      ```
+
+    </md-block>
+  </section>
+  <section id=section2 style="background-color: rgb(76, 82, 136);">
+
+    <h2 style="color: aliceblue ;text-align: center;padding-top: 9%;"> <em>High Order Array Method </em></h2>
+    <hr style="width: 50%;">
+    <md-block 2>
+      ```js
+      //************************************************************* */
+
+      let myCart = ["mangos", "apple", "jinja", "lemon", "carrots"];
+
+      //forEach..................................................
+
+      // the above iterator takes 3 parameters , param-1 is compulsory , param-2 and param-3 are optional.
+      // the variables name passed as parameters are dynamic varibles can be changed.
+      //uses anonymous fuction
+
+      myCart.forEach(function (value, index, array) {
+      console.log(`${value}`);
+      return console.log(`The value is ${value} at index ${index}`);
+      });
+
+      //output
+
+      /* mangos
+      The value is mangos at index 0
+      apple
+      The value is apple at index 1
+      jinja
+      The value is jinja at index 2
+      lemon
+      The value is lemon at index 3
+      carrots
+      The value is carrots at index 4*/
+
+      //map()*************************************************************
+
+      // act the same as forEach array , the difference is that it can create a copy of the original array , can
+      manupilate the array and return different values.
+      //using string
+
+      function convertToUpperCase(value) {
+      return value.toUpperCase();
+      }
+
+      let myCapsWord = myCart.map(convertToUpperCase); //used a named function
+      console.log(myCapsWord); // ['MANGOS', 'APPLE', 'JINJA', 'LEMON', 'CARROTS'] capitalized,changed from original
+      state, a copy
+      console.log(myCart); //  ['mangos', 'apple', 'jinja', 'lemon', 'carrots'] unchanged , in its original state
+
+      let myDiscount = [100, 20, 30, 45, 390];
+
+      function square(value) {
+      return value * value;
+      }
+      let discAmount = myDiscount.map(square); //uses a named fuction
+      console.log(discAmount); // [10000, 400, 900, 2025, 152100 ;
+      console.log(myDiscount); //[100, 20, 30, 45, 390] in its original state
+
+      // filter ***********************************************************
+      // is used to filter an array ,it applies conditional statement on each element and hence return results based on
+      boolean
+
+      let listNumbers = [35, 3, 45, 56, 23, 562, 78, 90, 34, 46, 78, 96];
+      let evenNum = listNumbers.filter(function (value, index, array) {
+      // return value % 2 === 0; // ouput . [56, 562, 78, 90, 34, 46, 78, 96] use this is short
+      return value ? value % 2 === 0 : value % 2 !== 0; // ouput . [56, 562, 78, 90, 34, 46, 78, 96]
+      }); // uses anonymous function like forEach, extract values based on condition
+      console.log(evenNum);
+
+      //reduce ***********************************************************
+      //reduce method - used to compute and sum up the array elents for instance...........
+      // can actually take 4 param , mostly first two are used , the first param is used to stores values
+      // uses a named function
+
+      let priceOrder = [35, 3, 45, 56, 23, 562, 78, 90, 34, 46, 78, 96];
+
+      // function calcTotalAmount(total,value,index,array){
+      // return total+value;
+      // }
+      let totalPrice = priceOrder.reduce(
+      function (total, value, index, array) {
+      return total + value;
+      }
+      // both named and anonymous function will produce same result
+      );
+      console.log(totalPrice); //1146
+
+      // some *************************************************************
+      //,retuns a boolean value after checking certain condition
+
+      let execeedOrderLimit = priceOrder.some(function (value) {
+      return value > 500;
+      });
+      console.log(execeedOrderLimit); // true . returned because 562 is greater than 500
+
+      //every ********************************************************* */
+
+      //every , works the same as some but all values must meet the same condition
+
+      let lowOrderlimit = priceOrder.every(function (value) {
+      return value > 10;
+      });
+      console.log(lowOrderlimit); //false .returned false because not all values are greater than 10 ,3 is less than 10
+
+      // find ***********************************************************
+
+      // this method is used to find an element in ana array and retuns it
+
+      let discountedUsers = ["Moraa", "Clinton", "Annet", "Zack"];
+
+      let userInterviewed = discountedUsers.find(function (value) {
+      return value === "Annet";
+      });
+      console.log(userInterviewed); //Annet , is founf inside the array , then its is returned. If a value is not found
+      it
+      rteturns undefined
+
+      //findIndex **************************************************** */.
+
+      let userNotInterviewed = discountedUsers.findIndex(function (value) {
+      return value === "Zack";
+      });
+      console.log(userNotInterviewed); //3 if the value didnt exist ,it would return -1
+
+      // forEach ********************************************************.
+
+      //test
+      const fruits = ["apple", "orange", "banana"];
+
+      let myFruitsAlert = fruits.forEach(function (value, index, arrray) {
+      // return alert(index +' - '+ value)
+      });
+      console.log(myFruitsAlert);
+
+      let upperCaseFruits = fruits.map(function (value, index, array) {
+      return value.toUpperCase(value);
+      });
+      console.log(upperCaseFruits);
+
+      let checkStringLength = fruits.every(function (value, index, array) {
+      return value.length > 4;
+      });
+      console.log(checkStringLength);
+      ```
+
+    </md-block>
+  </section>
+  <!-- <script src="https://{{cdn}}/prismjs@v1.x/components/prism-core.min.js"></script>
+  <script src="https://{{cdn}}/prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script> -->
   <script src="test.js"></script>
+  <script src="prism.js"></script>
 
 </body>
 
